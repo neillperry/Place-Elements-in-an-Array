@@ -28,16 +28,16 @@ def reorder(suggested, indexes, n):
       
       else:
       
-        #swap the "B" ad w/ the next eleement until it gets to the correct index place
+        #swap the "B" ad w/ the next element in suggdsted until it gets to the correct index place index[j]
         
         suggested[i], suggested[i+1] = suggested[i+1], suggested[i]
         i+=1
     
-    # the pointer for suggested has NOT hit upon an Product Placement n where it should
-    # i.e., "B" is later in the array
+    # the suggested pointer i is at the index where a Product Placement n should be but it's not
+    # i.e., "B" is later in the array, to the right of the i pointer
     elif i == indexes[j]:
  
-      #set values for starting value and previous
+      #set values for starting index value and previous array element
       starting = i
       previous = suggested[i]
 
@@ -48,17 +48,17 @@ def reorder(suggested, indexes, n):
       i+=1
 
       # iterate over the array, swapping previous for current until arrive at an n value
-      # essentially, we will shift the subarray from starting until the first n leftwards
+      # essentially, we replace suggested[i] with n (above) and will shift the array rightwards
       
       while suggested[i] != n:
         current = suggested[i]
         suggested[i] = previous
         previous = current
 
-        # iterate to next element in Suggested array
+        # iterate to next element in suggested array
         i+=1
 
-      # close the loop by setting the value of the current element (which should be n at this point) to previous
+      # close the loop by setting the value of the current element (which should be n at this point) to previous element
       suggested[i] = previous
 
       # RESET the pointers
