@@ -1,0 +1,74 @@
+
+# Test code
+indices = [2, 5, 9, 13]
+items = [ "1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "10", "11", "B", "12"]
+
+
+def reorder(suggested, indexes, n):
+  #create respective pointers for the two arrays
+
+  # Indexes is the integer array of indexes which should be Product Placement n
+  i = 0
+
+  # Suggested is the recommended purchases received from the API
+  j = 0
+
+  #iterate over the length of the suggested purchases array
+  while i < len(suggested):
+ 
+    # the Suggeted pointer has hit upon an Product Placement n
+    if suggested[i]==n:
+
+      #if the Advertisement is in the right place
+      if i == indexes[j]:
+        #iterate both pointers to check the next index 
+        i+=1
+        j+=1
+
+      #otherwise, "B" is in the wrong place - it's too early in the Suggested array
+      else:
+        #swap the "B" ad w/ the next eleement until it gets to the correct index place
+        suggested[i], suggested[i+1] = suggested[i+1], suggested[i]
+        i+=1
+    
+    # the pointer for suggested has not hit upon an Product Placement n where it should
+    # i.e., "B" is later in the array
+    elif i == indexes[j]:
+ 
+      #set values for starting value and previous
+      starting = i
+      previous = suggested[i]
+
+      # set the value for current index to n
+      suggested[i] = n
+
+      #advance the Suggested pointer one place
+      i+=1
+
+      # iterate over the array, swapping previous for current until arrive at an n value
+      # essentially, we will shift the subarray from starting until the first n leftwards
+      while suggested[i] != n:
+        current = suggested[i]
+        suggested[i] = previous
+        previous = current
+
+        # iterate to next element in Suggested array
+        i+=1
+
+      # close the loop by setting the value of the current element (which should be n at this point) to previous
+      suggested[i] = previous
+
+      # RESET the pointers
+      # advance the pointer for indexes to the next element in Index array
+      j+=1
+
+      # reset the pointer for Suggested array to the one just after the While loop started
+      i = starting+1
+
+    # Final scenario, the pointer for Suggested does not equal Product Placement n nor should it 
+    else:
+      #iterate to next element in Suggested
+      i+=1
+
+  # Return the Suggested array with Advertisements n in proper places
+  return suggested
