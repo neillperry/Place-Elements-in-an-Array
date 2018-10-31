@@ -15,5 +15,9 @@ There are three input variables for this problem:
  Also, the correct solution will minimize disruption to the unsorted array suggested. Move elements around as least as possible. 
  
  ## example
+ To solve this problem, I created the following example.
+ n is the string "B"
+ index = [2, 5, 9, 13]
+ suggested = [ "1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "10", "11", "B", "12"]
  
- 
+ The desired output should equal ["1", "2", "B", "4", "5", "B", "7", "8", "9", "10", "11", "12", "B"]
