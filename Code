@@ -5,33 +5,35 @@ items = [ "1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "10", "11", "B", "12
 
 
 def reorder(suggested, indexes, n):
-  #create respective pointers for the two arrays
 
-  # Indexes is the integer array of indexes which should be Product Placement n
+  #create respective pointers for the two arrays - i for indexes, j for suggested array
+
   i = 0
-
-  # Suggested is the recommended purchases received from the API
   j = 0
 
-  #iterate over the length of the suggested purchases array
+  #iterate over the length of the suggested array
   while i < len(suggested):
  
-    # the Suggeted pointer has hit upon an Product Placement n
+    # the Suggeted pointer has hit upon a Product Placement n
     if suggested[i]==n:
 
-      #if the Advertisement is in the right place
+      #if the Product Placement is in the right place
       if i == indexes[j]:
-        #iterate both pointers to check the next index 
+      
+        #iterate both pointers to check the next index in the index array
         i+=1
         j+=1
 
-      #otherwise, "B" is in the wrong place - it's too early in the Suggested array
+      #otherwise, Product Placement n ("B") is in the wrong place - too early in Suggested array
+      
       else:
+      
         #swap the "B" ad w/ the next eleement until it gets to the correct index place
+        
         suggested[i], suggested[i+1] = suggested[i+1], suggested[i]
         i+=1
     
-    # the pointer for suggested has not hit upon an Product Placement n where it should
+    # the pointer for suggested has NOT hit upon an Product Placement n where it should
     # i.e., "B" is later in the array
     elif i == indexes[j]:
  
@@ -47,6 +49,7 @@ def reorder(suggested, indexes, n):
 
       # iterate over the array, swapping previous for current until arrive at an n value
       # essentially, we will shift the subarray from starting until the first n leftwards
+      
       while suggested[i] != n:
         current = suggested[i]
         suggested[i] = previous
@@ -70,5 +73,5 @@ def reorder(suggested, indexes, n):
       #iterate to next element in Suggested
       i+=1
 
-  # Return the Suggested array with Advertisements n in proper places
+  # Return the Suggested array with Product Placements n at proper indices
   return suggested
