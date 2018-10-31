@@ -23,7 +23,7 @@ The problem is that the *product placements n* are not located in their proper p
  * index = [2, 5, 9, 13]
  * suggested = [ "1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "10", "11", "B", "12"]
  
- The desired output should equal ["1", "2", "B", "4", "5", "B", "7", "8", "9", "10", "11", "12", "B"]
+ The desired output should equal ["1", "2", "B", "4", "5", "B", "7", "8", "9", "B", "10", "11", "12", "B"]
 
 ## solution 
 My solution is in the other file in this repository. There is a functioning Python function along with comments that explain my thought process. Best case runtime is O(n) and worst case runtime is O(n log n). 
