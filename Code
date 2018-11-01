@@ -2,13 +2,13 @@
 '''
 Test 1
 indices = [2, 5, 9, 13]
-items = [ "1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "11", "12", "B", "13"]
+items = ["1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "11", "12", "B", "13"]
 
 Test 2
 indices = [2, 5, 9, 13]
 suggested = [ "1", "2", "4", "5", "7", "8", "9", "11", "12", "13", "B", "B", "B", "B"]
 
-Test 2
+Test 3
 indices = [2, 5, 9, 13]
 suggested = ["B", "B", "B", "B", "1", "2", "4", "5", "7", "8", "9", "11", "12", "13"]
 
@@ -31,6 +31,7 @@ def reorganize(indices, items, n):
   #iterate over the array once
   while j < len(items):
 
+
     # if the j pointers points to n, advance it
     if return_array[j]==n:
       j+=1
@@ -45,4 +46,6 @@ def reorganize(indices, items, n):
       i+=1
       j+=1
 
+
   print(return_array)
+
