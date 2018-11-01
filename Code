@@ -16,7 +16,7 @@ suggested = ["B", "B", "B", "B", "1", "2", "4", "5", "7", "8", "9", "11", "12", 
 
 def reorganize(indices, items, n):
   
-  #create a return array of equal size to suggested
+  #create a return array of equal size to items
   return_array = [0]*len(items)
 
   # iterate over this return array and place the Placement 
@@ -24,7 +24,7 @@ def reorganize(indices, items, n):
   for index in indices:
     return_array[index] = n
   
-  #pointers for the indices and items arrays
+  #pointers for the items and the return_array
   i = 0
   j = 0
 
