@@ -3,44 +3,47 @@
 Test 1
 indices = [2, 5, 9, 13]
 items = ["1", "2", "4", "5", "B", "B", "7", "8", "B", "9", "11", "12", "B", "13"]
+product_placement = "B"
 
 Test 2
 indices = [2, 5, 9, 13]
 suggested = [ "1", "2", "4", "5", "7", "8", "9", "11", "12", "13", "B", "B", "B", "B"]
+product_placement = "B"
 
 Test 3
 indices = [2, 5, 9, 13]
 suggested = ["B", "B", "B", "B", "1", "2", "4", "5", "7", "8", "9", "11", "12", "13"]
+product_placement = "B"
 
 '''
 
-def reorganize(indices, items, n):
+def reorganize(indices, items, product_placement):
   
   #create a return array of equal size to items
   return_array = [0]*len(items)
 
   # iterate over this return array and place the Placement 
-  #Products at the appropriate place
+  #Products at the appropriate index
   for index in indices:
-    return_array[index] = n
+    return_array[index] = product_placement
   
   #pointers for the items and the return_array
   i = 0
   j = 0
 
-  #iterate over the array once
+  #iterate over the length of both arrays, which are of equal length
   while j < len(items):
 
 
-    # if the j pointers points to n, advance it
-    if return_array[j]==n:
+    # if the j pointers points to a product_placement, advance it
+    if return_array[j]==product_placement:
       j+=1
 
     # if the i pointer points to n, advance it
-    elif items[i]==n:
+    elif items[i]==product_placement:
       i+=1
       
-    # final case, j points to a 0, i points to a non-n value
+    # final case, j points to a 0, i points to a non-product placement value
     else:
       return_array[j]=items[i]
       i+=1
